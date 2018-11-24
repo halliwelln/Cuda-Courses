@@ -2,8 +2,8 @@
 
 /*
 Print:
-'Hello from the CPU.'
 'Hello from the GPU.'
+'Hello from the CPU.'
 */
 
 void helloCPU()
@@ -14,15 +14,15 @@ void helloCPU()
 
 __global__ void helloGPU()
 {
-  printf("Hello also from the GPU.\n");
+  printf("Hello from the GPU.\n");
 }
 
 int main()
 {
 
-  helloCPU();
-
   helloGPU<<<1,1>>>();
 
   cudaDeviceSynchronize();
+
+  helloCPU();
 }
